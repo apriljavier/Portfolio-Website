@@ -3,11 +3,45 @@
     <Navbar />
     <section class="hero">
       <img src="/profile.png" alt="My Photo" class="hero-img" />
-
       <!-- floating circles -->
       <div class="floating-circle circle1">Web Developer</div>
       <div class="floating-circle circle2">Quality Assurance</div>
       <div class="floating-circle circle3">UI/UX</div>
+    </section>
+    <section class="about-section">
+      <div class="content">
+        <h2>About Me</h2>
+        <p>
+          insert about me here
+        </p>
+      </div>
+    </section>
+    <section class="projects-section">
+      <div class="content">
+        <h2>Projects</h2>
+        <p>
+          insert projects here
+        </p>
+      </div>
+    </section>
+    <section class="contact-section">
+      <div class="content">
+        <h2>Contact</h2>
+        <p>
+          insert contact here
+        </p>
+      </div>
+    </section>
+    <section class="more-section">
+      <div class="content">
+        <h2>More</h2>
+        <p>
+          insert more here
+        </p>
+      </div>
+      <div class="footer">
+        <p>© 2025 April Kate M Javier. All rights reserved.</p>
+      </div>
     </section>
   </div>
 </template>
@@ -36,7 +70,7 @@ export default {
   width: 500px;
   height: 500px;
   object-fit: cover;
-  margin-bottom: 2rem;
+  transform: translateY(-10%);
 }
 
 /* floating circles base */
@@ -62,7 +96,7 @@ export default {
 }
 
 .circle2 {
-  top: 80%;
+  top: 75%;
   left: 52%;
   transform: translate(-50%, -50%);
   animation: float2 7s ease-in-out infinite;
@@ -90,4 +124,98 @@ export default {
   0%, 100% { transform: translate(-50%, -50%) translate(0, 0); }
   50% { transform: translate(-50%, -50%) translate(6px, -6px); }
 }
+
+/* ABOUT SECTION */
+.about-section {
+  background-color: #00302D; /* dark teal */
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top-right-radius: 100px;
+  border: 2px solid white;
+  border-left: none;
+  border-bottom: none;
+}
+
+.about-section .content {
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+}
+/* PROJECTS SECTION */
+.projects-section {
+  background-color: #00302D;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top-left-radius: 100px;
+  border: 2px solid white;
+  border-right: none;
+  border-bottom: none;
+}
+
+.projects-section .content {
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+}
+/* CONTACT SECTION */
+.contact-section {
+  background-color: #00302D;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top-right-radius: 100px;
+  border: 2px solid white;
+  border-left: none;
+  border-bottom: none;
+}
+
+.contact-section .content {
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+}
+/* MORE SECTION */
+.more-section {
+  background-color: #00302D;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top-left-radius: 100px;
+  border: 2px solid white;
+  border-right: none;
+  border-bottom: none;
+}
+
+.more-section .content {
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+}
+section {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+/* layer order */
+.hero {
+  z-index: 1;
+}
+
+.about-section {
+  z-index: 2;
+}
+
+.projects-section {
+  z-index: 3;
+}
+.contact-section {
+  z-index: 4;
+}
+.more-section {
+  z-index: 5;
+}
+
 </style>
