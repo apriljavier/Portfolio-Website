@@ -17,10 +17,10 @@
 
     <!-- icons -->
     <div class="social-icons">
-      <a href="https://github.com/yourusername" target="_blank" class="icon">
+      <a href="https://github.com/apriljavier" target="_blank" class="icon">
         <i class="fab fa-github"></i>
       </a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" class="icon">
+      <a href="https://www.linkedin.com/in/april-kate-javier-991023260/" target="_blank" class="icon">
         <i class="fab fa-linkedin"></i>
       </a>
     </div>

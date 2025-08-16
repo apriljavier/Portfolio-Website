@@ -1,6 +1,17 @@
 <template>
   <div id="app">
-    <Navbar />
+    <!-- normal navbar -->
+     <Navbar v-show="!showFloatingNavbar" class="normal-navbar" />
+    <!-- floating navbar -->
+    <div v-show="showFloatingNavbar" class="floating-navbar">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#more">MORE</a></li>
+      </ul>
+    </div> 
+    <!-- <Navbar /> -->
     <section class="hero">
       <img src="/profile.png" alt="My Photo" class="hero-img" />
       <!-- floating circles -->
@@ -60,7 +71,8 @@ export default {
   components: { Navbar },
   data() {
     return {
-      showTopButton: false
+      showTopButton: false,
+      showFloatingNavbar: false
     }
   },
   methods: {
@@ -86,6 +98,7 @@ export default {
     // back-to-top visibility
     window.addEventListener("scroll", () => {
       this.showTopButton = window.scrollY > 300;
+      this.showFloatingNavbar = window.scrollY > 100;
     });
   }
 }
@@ -113,8 +126,8 @@ section.show-section {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
-
 .hero-img {
   width: 500px;
   height: 500px;
@@ -126,7 +139,7 @@ section.show-section {
 .floating-circle {
   position: absolute;
   padding: 1.5rem 4rem;
-  border-radius: 9999px; /* pill shape */
+  border-radius: 9999px;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: white;
@@ -136,26 +149,52 @@ section.show-section {
   backdrop-filter: blur(6px);
   white-space: nowrap;
 }
+.circle1 { top: 40%; left: 35%; transform: translate(-50%, -50%); animation: float1 6s ease-in-out infinite; }
+.circle2 { top: 75%; left: 52%; transform: translate(-50%, -50%); animation: float2 7s ease-in-out infinite; }
+.circle3 { top: 50%; left: 65%; transform: translate(-50%, -50%); animation: float3 8s ease-in-out infinite; }
 
-.circle1 {
-  top: 40%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  animation: float1 6s ease-in-out infinite;
+/* float animations */
+@keyframes float1 { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
+@keyframes float2 { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(6px); } }
+@keyframes float3 { 0%, 100% { transform: translate(-50%, -50%) translate(0, 0); } 50% { transform: translate(-50%, -50%) translate(6px, -6px); } }
+
+/* floating navbar */
+.floating-navbar {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  /* background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3); */
+  backdrop-filter: blur(6px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  animation: floatNav 6s ease-in-out infinite;
 }
-
-.circle2 {
-  top: 75%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-  animation: float2 7s ease-in-out infinite;
+.floating-navbar ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
 }
-
-.circle3 {
-  top: 50%;
-  left: 65%;
-  transform: translate(-50%, -50%);
-  animation: float3 8s ease-in-out infinite;
+.floating-navbar a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: bold;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s;
+  text-decoration: none;
+}
+.floating-navbar a:hover { background: rgba(255, 255, 255, 0.3); }
+@keyframes floatNav {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
 }
 
 /* Irregular Float Animations */
