@@ -8,7 +8,7 @@
       <div class="floating-circle circle2">Quality Assurance</div>
       <div class="floating-circle circle3">UI/UX</div>
     </section>
-    <section class="about-section">
+    <section id="about" class="about-section">
       <div class="content">
         <h2>About Me</h2>
         <p>
@@ -16,7 +16,7 @@
         </p>
       </div>
     </section>
-    <section class="projects-section">
+    <section id="projects" class="projects-section">
       <div class="content">
         <h2>Projects</h2>
         <p>
@@ -24,7 +24,7 @@
         </p>
       </div>
     </section>
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
       <div class="content">
         <h2>Contact</h2>
         <p>
@@ -32,7 +32,7 @@
         </p>
       </div>
     </section>
-    <section class="more-section">
+    <section id="more" class="more-section">
       <div class="content">
         <h2>More</h2>
         <p>
@@ -43,6 +43,13 @@
         <p>© 2025 April Kate M Javier. All rights reserved.</p>
       </div>
     </section>
+    <button 
+      v-show="showTopButton" 
+      @click="scrollToTop" 
+      class="back-to-top"
+    >
+      ↑
+    </button>
   </div>
 </template>
 
@@ -50,11 +57,53 @@
 import Navbar from './components/Navbar.vue'
 
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  data() {
+    return {
+      showTopButton: false
+    }
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  },
+  mounted() {
+    // section slide-up observer
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-section");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // back-to-top visibility
+    window.addEventListener("scroll", () => {
+      this.showTopButton = window.scrollY > 300;
+    });
+  }
 }
 </script>
 
+
 <style>
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+section.show-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero {
   display: flex;
   flex-direction: column;  
@@ -216,6 +265,33 @@ section {
 }
 .more-section {
   z-index: 5;
+}
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0DADA3;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 </style>
