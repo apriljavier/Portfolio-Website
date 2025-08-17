@@ -115,26 +115,60 @@
     </section>
     <section id="projects" class="projects-section">
       <div class="content">
+        <img src="/project.png" alt="Hi There!" />
         <h2>Projects</h2>
-        <p>
-          insert projects here
-        </p>
+        <div class="progress-notice">
+          <h3 class="progress-title">
+            <span class="construction-emoji">🚧</span>
+            Under Construction
+            <span class="construction-emoji">🚧</span>
+          </h3>
+          
+          <div class="notice-box">
+            <p class="notice-text">
+              This section is still in progress.
+            </p>
+          </div>
+          <span class="smiley">😊</span>
+        </div>
       </div>
     </section>
     <section id="contact" class="contact-section">
       <div class="content">
         <h2>Contact</h2>
-        <p>
-          insert contact here
-        </p>
+        <div class="progress-notice">
+          <h3 class="progress-title">
+            <span class="construction-emoji">🚧</span>
+            Under Construction
+            <span class="construction-emoji">🚧</span>
+          </h3>
+          
+          <div class="notice-box">
+            <p class="notice-text">
+              This section is still in progress.
+            </p>
+          </div>
+          <span class="smiley">😊</span>
+        </div>
       </div>
     </section>
     <section id="more" class="more-section">
       <div class="content">
         <h2>More</h2>
-        <p>
-          insert more here
-        </p>
+        <div class="progress-notice">
+          <h3 class="progress-title">
+            <span class="construction-emoji">🚧</span>
+            Under Construction
+            <span class="construction-emoji">🚧</span>
+          </h3>
+          
+          <div class="notice-box">
+            <p class="notice-text">
+              This section is still in progress.
+            </p>
+          </div>
+          <span class="smiley">😊</span>
+        </div>
       </div>
       <div class="footer">
         <p>© 2025 April Kate M Javier. All rights reserved.</p>
@@ -663,6 +697,11 @@ section.show-section {
   height: 800px;
   margin: 0 auto;
 }
+
+.projects-section .content img {
+  max-width: 500px;
+}
+
 /* CONTACT SECTION */
 .contact-section {
   background-color: #00302D;
