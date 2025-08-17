@@ -71,6 +71,46 @@
     <section id="experience" class="experience-section">
       <div class="content">
         <h2>Experience</h2>
+        <div class="experience-layout">
+          <div class="left-side">
+            <h1 class="university-title">Batangas State<br>University</h1>
+            <div class="underline"></div>
+          </div>
+          
+          <div class="right-side">
+            <div class="job-card">
+              <h3 class="job-title">Web Developer</h3>
+              <p class="job-date">Jun-Jul 2025</p>
+              <p class="job-type">Seasonal</p>
+              <div class="skills">
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">Front-end</span>
+                <span class="skill-tag">Elementor</span>
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">OpenProject</span>
+                <span class="skill-tag">Figma</span>
+              </div>
+            </div>
+            
+            <div class="job-card">
+              <h3 class="job-title">Quality Assurance Tester</h3>
+              <p class="job-date">Jun-Jul 2024</p>
+              <p class="job-type">Intern</p>
+              <div class="skills">
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">Front-end</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">VueJS</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Manual Testing</span>
+                <span class="skill-tag">API Testing</span>
+                <span class="skill-tag">OpenProject</span>
+                <span class="skill-tag">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section id="projects" class="projects-section">
@@ -439,28 +479,172 @@ section.show-section {
   background-color: #00302D;
   color: white;
   padding: 4rem 2rem;
-  text-align: center;
-  /* border-top-left-radius: 100px; */
-  /* border-top: 2px solid white; */
   border-right: 2px solid white;
   border-bottom: none;
   position: sticky;
   top: 0;
   min-height: 100vh;
-  z-index: 4; /* Adjust z-index accordingly */
+  z-index: 5;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.experience-section .content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .experience-section h2 {
   font-size: 2.5rem;
   font-weight: bold;
   color: white;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
+  justify-self: center;
 }
 
-.experience-section .content {
-  max-width: 800px;
-  height: 800px;
-  margin: 0 auto;
+.experience-layout {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  min-height: 600px;
+}
+
+.left-side {
+  flex: 1;
+  max-width: 400px;
+}
+
+.university-title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.underline {
+  width: 200px;
+  height: 4px;
+  background-color: #0DADA3;
+  margin-top: 20px;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.job-card {
+  background: #0dada249;
+  border-radius: 8px;
+  /* border: solid white; */
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.job-type {
+  color: #0DADA3;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.job-date {
+  color: #ffffff60;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  transition: none;
+}
+
+.skill-tag::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #0DADA3;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill-tag:hover {
+  background: none;
+  color: #555;
+  transform: none;
+}
+
+.skill-tag:hover::before {
+  background: #0bb3a8;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .skills {
+    gap: 16px;
+  }
+  
+  .skill-tag {
+    font-size: 0.9rem;
+  }
+  
+  .skill-tag::before {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    gap: 14px;
+  }
+  
+  .skill-tag {
+    font-size: 0.85rem;
+  }
+  
+  .skill-tag::before {
+    width: 6px;
+    height: 6px;
+  }
 }
 /* PROJECTS SECTION */
 .projects-section {
